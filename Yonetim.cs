@@ -6,5 +6,16 @@ namespace Kitapci
         {
             InitializeComponent();
         }
+
+        private void kapatma_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
+
+        private void kucult_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
