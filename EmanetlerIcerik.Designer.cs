@@ -1,6 +1,6 @@
 ﻿namespace Kitapci
 {
-    partial class KisilerIcerik
+    partial class EmanetlerIcerik
     {
         /// <summary> 
         ///Gerekli tasarımcı değişkeni.
@@ -36,18 +36,18 @@
             label1.AutoSize = true;
             label1.Location = new Point(324, 331);
             label1.Name = "label1";
-            label1.Size = new Size(115, 20);
+            label1.Size = new Size(142, 20);
             label1.TabIndex = 1;
-            label1.Text = "KisilerİcerikAktif";
+            label1.Text = "EmanetlerİcerikAktif";
             // 
-            // KisilerIcerik
+            // EmanetlerIcerik
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Silver;
             Controls.Add(label1);
             Margin = new Padding(0);
-            Name = "KisilerIcerik";
+            Name = "EmanetlerIcerik";
             Size = new Size(763, 682);
             ResumeLayout(false);
             PerformLayout();

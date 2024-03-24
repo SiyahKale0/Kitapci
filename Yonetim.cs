@@ -31,5 +31,17 @@ namespace Kitapci
             var kitaplarIcerik = new KitaplarIcerik();
             icerik.Controls.Add(kitaplarIcerik);
         }
+
+        private void emanetler_btn_Click(object sender, EventArgs e)
+        {
+            icerik.Controls.Clear();
+            var emanetlerIcerik = new EmanetlerIcerik();
+            icerik.Controls.Add(emanetlerIcerik);
+        }
+
+        private void Yonetim_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -131,6 +131,7 @@
             emanetler_btn.TabIndex = 16;
             emanetler_btn.Text = "Emanetler";
             emanetler_btn.UseVisualStyleBackColor = false;
+            emanetler_btn.Click += emanetler_btn_Click;
             // 
             // icerik
             // 
@@ -159,6 +160,7 @@
             Name = "Yonetim";
             Text = "Kütüphane Yöntim Sistemi";
             TopMost = true;
+            Load += Yonetim_Load;
             ResumeLayout(false);
             PerformLayout();
         }
