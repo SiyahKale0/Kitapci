@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            logo_txt = new Label();
-            baslik_txt = new Label();
             kapatma_btn = new Button();
             kucultme_btn = new Button();
             kisiler_btn = new Button();
@@ -37,31 +35,9 @@
             emanetler_btn = new Button();
             icerik = new Panel();
             islemler_btn = new Button();
+            logo_txt = new Label();
+            baslik_txt = new Label();
             SuspendLayout();
-            // 
-            // logo_txt
-            // 
-            logo_txt.AutoSize = true;
-            logo_txt.BackColor = Color.Transparent;
-            logo_txt.Font = new Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            logo_txt.ForeColor = Color.FromArgb(80, 70, 70);
-            logo_txt.Location = new Point(44, -16);
-            logo_txt.Name = "logo_txt";
-            logo_txt.Size = new Size(155, 106);
-            logo_txt.TabIndex = 0;
-            logo_txt.Text = "📖";
-            // 
-            // baslik_txt
-            // 
-            baslik_txt.AutoSize = true;
-            baslik_txt.Font = new Font("Showcard Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            baslik_txt.ForeColor = Color.FromArgb(80, 70, 70);
-            baslik_txt.Location = new Point(11, 90);
-            baslik_txt.Name = "baslik_txt";
-            baslik_txt.Size = new Size(210, 74);
-            baslik_txt.TabIndex = 1;
-            baslik_txt.Text = " Kütüphane \r\nYönetim";
-            baslik_txt.TextAlign = ContentAlignment.TopCenter;
             // 
             // kapatma_btn
             // 
@@ -154,6 +130,31 @@
             islemler_btn.TabIndex = 18;
             islemler_btn.Text = "İşlemler";
             islemler_btn.UseVisualStyleBackColor = false;
+            islemler_btn.Click += islemler_btn_Click;
+            // 
+            // logo_txt
+            // 
+            logo_txt.AutoSize = true;
+            logo_txt.BackColor = Color.Transparent;
+            logo_txt.Font = new Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            logo_txt.ForeColor = Color.FromArgb(80, 70, 70);
+            logo_txt.Location = new Point(43, -12);
+            logo_txt.Name = "logo_txt";
+            logo_txt.Size = new Size(155, 106);
+            logo_txt.TabIndex = 1;
+            logo_txt.Text = "📖";
+            // 
+            // baslik_txt
+            // 
+            baslik_txt.AutoSize = true;
+            baslik_txt.Font = new Font("Showcard Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            baslik_txt.ForeColor = Color.FromArgb(80, 70, 70);
+            baslik_txt.Location = new Point(12, 94);
+            baslik_txt.Name = "baslik_txt";
+            baslik_txt.Size = new Size(210, 74);
+            baslik_txt.TabIndex = 21;
+            baslik_txt.Text = " Kütüphane \r\nYönetim";
+            baslik_txt.TextAlign = ContentAlignment.TopCenter;
             // 
             // Yonetim
             // 
@@ -162,6 +163,8 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(238, 237, 223);
             ClientSize = new Size(1002, 747);
+            Controls.Add(baslik_txt);
+            Controls.Add(logo_txt);
             Controls.Add(islemler_btn);
             Controls.Add(icerik);
             Controls.Add(emanetler_btn);
@@ -169,22 +172,20 @@
             Controls.Add(kisiler_btn);
             Controls.Add(kucultme_btn);
             Controls.Add(kapatma_btn);
-            Controls.Add(baslik_txt);
-            Controls.Add(logo_txt);
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             Name = "Yonetim";
             Text = "Kütüphane Yöntim Sistemi";
             TopMost = true;
             Load += Yonetim_Load;
+            MouseDown += yonetim_MouseDown;
+            MouseMove += yonetim_MouseMove;
+            MouseUp += yonetim_MouseUp;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label logo_txt;
-        private Label baslik_txt;
         private Button kapatma_btn;
         private Button kucultme_btn;
         private Button kisiler_btn;
@@ -192,5 +193,7 @@
         private Button emanetler_btn;
         private Panel icerik;
         private Button islemler_btn;
+        private Label logo_txt;
+        private Label baslik_txt;
     }
 }
