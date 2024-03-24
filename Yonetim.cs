@@ -41,7 +41,9 @@ namespace Kitapci
 
         private void Yonetim_Load(object sender, EventArgs e)
         {
-
+            icerik.Controls.Clear();
+            var emanetlerIcerik = new EmanetlerIcerik();
+            icerik.Controls.Add(emanetlerIcerik);
         }
     }
 }

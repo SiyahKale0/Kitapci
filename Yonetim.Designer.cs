@@ -36,6 +36,7 @@
             kitaplar_btn = new Button();
             emanetler_btn = new Button();
             icerik = new Panel();
+            islemler_btn = new Button();
             SuspendLayout();
             // 
             // logo_txt
@@ -140,6 +141,20 @@
             icerik.Size = new Size(763, 682);
             icerik.TabIndex = 17;
             // 
+            // islemler_btn
+            // 
+            islemler_btn.BackColor = Color.FromArgb(255, 196, 156);
+            islemler_btn.FlatAppearance.BorderColor = Color.Black;
+            islemler_btn.FlatStyle = FlatStyle.Flat;
+            islemler_btn.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            islemler_btn.ForeColor = Color.FromArgb(80, 70, 70);
+            islemler_btn.Location = new Point(21, 590);
+            islemler_btn.Name = "islemler_btn";
+            islemler_btn.Size = new Size(191, 101);
+            islemler_btn.TabIndex = 18;
+            islemler_btn.Text = "İşlemler";
+            islemler_btn.UseVisualStyleBackColor = false;
+            // 
             // Yonetim
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -147,6 +162,7 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(238, 237, 223);
             ClientSize = new Size(1002, 747);
+            Controls.Add(islemler_btn);
             Controls.Add(icerik);
             Controls.Add(emanetler_btn);
             Controls.Add(kitaplar_btn);
@@ -175,5 +191,6 @@
         private Button kitaplar_btn;
         private Button emanetler_btn;
         private Panel icerik;
+        private Button islemler_btn;
     }
 }

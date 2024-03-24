@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Kitapci
 {
-    public partial class KisilerIcerik : UserControl
+    public partial class Islemler : Form
     {
-        public KisilerIcerik()
+        public Islemler()
         {
             InitializeComponent();
-        }
-
-        private void kisiEkle_btn_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
