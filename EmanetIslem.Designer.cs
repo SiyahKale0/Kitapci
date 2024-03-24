@@ -28,15 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             label2 = new Label();
-            label3 = new Label();
-            dateTimePicker1 = new DateTimePicker();
             dateTimePicker2 = new DateTimePicker();
             label4 = new Label();
             kucultme_btn = new Button();
@@ -49,6 +47,8 @@
             oduncVer_btn = new Button();
             iadeAl_btn = new Button();
             sureUzat = new Button();
+            label3 = new Label();
+            textBox3 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)kisilerData).BeginInit();
             SuspendLayout();
             // 
@@ -89,25 +89,6 @@
             label2.Size = new Size(163, 41);
             label2.TabIndex = 20;
             label2.Text = "Kitap ISBN:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(925, 192);
-            label3.Name = "label3";
-            label3.Size = new Size(161, 41);
-            label3.TabIndex = 22;
-            label3.Text = "Alım Tarihi:";
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            dateTimePicker1.Location = new Point(925, 236);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(286, 43);
-            dateTimePicker1.TabIndex = 23;
             // 
             // dateTimePicker2
             // 
@@ -157,35 +138,35 @@
             // kisilerData
             // 
             kisilerData.BackgroundColor = Color.FromArgb(238, 237, 223);
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(192, 192, 0);
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle10.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle10.NullValue = null;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            kisilerData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(192, 192, 0);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            kisilerData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             kisilerData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             kisilerData.Columns.AddRange(new DataGridViewColumn[] { aliciTc, kitapIsbn, alimTarihi, iadeTarihi });
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = Color.FromArgb(238, 237, 223);
-            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle11.ForeColor = Color.FromArgb(238, 237, 223);
-            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
-            kisilerData.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(238, 237, 223);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(238, 237, 223);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            kisilerData.DefaultCellStyle = dataGridViewCellStyle2;
             kisilerData.Location = new Point(12, 12);
             kisilerData.Name = "kisilerData";
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = Color.Transparent;
-            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle12.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
-            kisilerData.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Transparent;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            kisilerData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             kisilerData.RowHeadersWidth = 51;
             kisilerData.Size = new Size(898, 736);
             kisilerData.TabIndex = 28;
@@ -254,6 +235,25 @@
             sureUzat.Text = "Süre Uzat";
             sureUzat.UseVisualStyleBackColor = false;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(925, 192);
+            label3.Name = "label3";
+            label3.Size = new Size(260, 41);
+            label3.TabIndex = 22;
+            label3.Text = "Alı Konulacak gün:";
+            // 
+            // textBox3
+            // 
+            textBox3.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            textBox3.Location = new Point(925, 236);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(286, 43);
+            textBox3.TabIndex = 32;
+            // 
             // EmanetIslem
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -262,6 +262,7 @@
             BackColor = Color.FromArgb(238, 237, 223);
             ClientSize = new Size(1332, 776);
             ControlBox = false;
+            Controls.Add(textBox3);
             Controls.Add(sureUzat);
             Controls.Add(iadeAl_btn);
             Controls.Add(oduncVer_btn);
@@ -270,7 +271,6 @@
             Controls.Add(kapatma_btn);
             Controls.Add(dateTimePicker2);
             Controls.Add(label4);
-            Controls.Add(dateTimePicker1);
             Controls.Add(label3);
             Controls.Add(textBox2);
             Controls.Add(label2);
@@ -296,8 +296,6 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private Label label2;
-        private Label label3;
-        private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker2;
         private Label label4;
         private Button kucultme_btn;
@@ -310,5 +308,7 @@
         private Button oduncVer_btn;
         private Button iadeAl_btn;
         private Button sureUzat;
+        private Label label3;
+        private TextBox textBox3;
     }
 }
