@@ -17,5 +17,19 @@ namespace Kitapci
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void kisiler_btn_Click(object sender, EventArgs e)
+        {
+            icerik.Controls.Clear();
+            var kisilerIcerik = new KisilerIcerik();
+            icerik.Controls.Add(kisilerIcerik);
+        }
+
+        private void kitaplar_btn_Click(object sender, EventArgs e)
+        {
+            icerik.Controls.Clear();
+            var kitaplarIcerik = new KitaplarIcerik();
+            icerik.Controls.Add(kitaplarIcerik);
+        }
     }
 }
