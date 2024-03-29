@@ -28,28 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            aliciTcTB = new TextBox();
+            kitapIsbnTB = new TextBox();
             label2 = new Label();
-            dateTimePicker2 = new DateTimePicker();
+            iadeDT = new DateTimePicker();
             label4 = new Label();
             kucultme_btn = new Button();
             kapatma_btn = new Button();
-            kisilerData = new DataGridView();
-            aliciTc = new DataGridViewTextBoxColumn();
-            kitapIsbn = new DataGridViewTextBoxColumn();
-            alimTarihi = new DataGridViewTextBoxColumn();
-            iadeTarihi = new DataGridViewTextBoxColumn();
+            emanetlerData = new DataGridView();
             oduncVer_btn = new Button();
             iadeAl_btn = new Button();
             sureUzat = new Button();
             label3 = new Label();
-            textBox3 = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)kisilerData).BeginInit();
+            gunTB = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)emanetlerData).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -63,21 +59,21 @@
             label1.TabIndex = 0;
             label1.Text = "Alıcı TC:";
             // 
-            // textBox1
+            // aliciTcTB
             // 
-            textBox1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox1.Location = new Point(925, 56);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(286, 43);
-            textBox1.TabIndex = 19;
+            aliciTcTB.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            aliciTcTB.Location = new Point(925, 56);
+            aliciTcTB.Name = "aliciTcTB";
+            aliciTcTB.Size = new Size(286, 43);
+            aliciTcTB.TabIndex = 19;
             // 
-            // textBox2
+            // kitapIsbnTB
             // 
-            textBox2.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox2.Location = new Point(925, 146);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(286, 43);
-            textBox2.TabIndex = 21;
+            kitapIsbnTB.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            kitapIsbnTB.Location = new Point(925, 146);
+            kitapIsbnTB.Name = "kitapIsbnTB";
+            kitapIsbnTB.Size = new Size(286, 43);
+            kitapIsbnTB.TabIndex = 21;
             // 
             // label2
             // 
@@ -90,13 +86,13 @@
             label2.TabIndex = 20;
             label2.Text = "Kitap ISBN:";
             // 
-            // dateTimePicker2
+            // iadeDT
             // 
-            dateTimePicker2.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            dateTimePicker2.Location = new Point(925, 326);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(286, 43);
-            dateTimePicker2.TabIndex = 25;
+            iadeDT.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            iadeDT.Location = new Point(925, 326);
+            iadeDT.Name = "iadeDT";
+            iadeDT.Size = new Size(286, 43);
+            iadeDT.TabIndex = 25;
             // 
             // label4
             // 
@@ -135,69 +131,40 @@
             kapatma_btn.UseVisualStyleBackColor = false;
             kapatma_btn.Click += kapatma_btn_Click;
             // 
-            // kisilerData
+            // emanetlerData
             // 
-            kisilerData.BackgroundColor = Color.FromArgb(238, 237, 223);
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(192, 192, 0);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.NullValue = null;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            kisilerData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            kisilerData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            kisilerData.Columns.AddRange(new DataGridViewColumn[] { aliciTc, kitapIsbn, alimTarihi, iadeTarihi });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(238, 237, 223);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(238, 237, 223);
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            kisilerData.DefaultCellStyle = dataGridViewCellStyle5;
-            kisilerData.Location = new Point(12, 12);
-            kisilerData.Name = "kisilerData";
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.Transparent;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            kisilerData.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            kisilerData.RowHeadersWidth = 51;
-            kisilerData.Size = new Size(898, 736);
-            kisilerData.TabIndex = 28;
-            // 
-            // aliciTc
-            // 
-            aliciTc.HeaderText = "Alıcı TC";
-            aliciTc.MinimumWidth = 6;
-            aliciTc.Name = "aliciTc";
-            aliciTc.Width = 125;
-            // 
-            // kitapIsbn
-            // 
-            kitapIsbn.HeaderText = "Kitap ISBN";
-            kitapIsbn.MinimumWidth = 6;
-            kitapIsbn.Name = "kitapIsbn";
-            kitapIsbn.Width = 125;
-            // 
-            // alimTarihi
-            // 
-            alimTarihi.HeaderText = "Alım Tarihi";
-            alimTarihi.MinimumWidth = 6;
-            alimTarihi.Name = "alimTarihi";
-            alimTarihi.Width = 125;
-            // 
-            // iadeTarihi
-            // 
-            iadeTarihi.HeaderText = "İade Tarihi";
-            iadeTarihi.MinimumWidth = 6;
-            iadeTarihi.Name = "iadeTarihi";
-            iadeTarihi.Width = 125;
+            emanetlerData.BackgroundColor = Color.FromArgb(238, 237, 223);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(192, 192, 0);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            emanetlerData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            emanetlerData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(238, 237, 223);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(238, 237, 223);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            emanetlerData.DefaultCellStyle = dataGridViewCellStyle2;
+            emanetlerData.Location = new Point(12, 12);
+            emanetlerData.Name = "emanetlerData";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.Transparent;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            emanetlerData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            emanetlerData.RowHeadersWidth = 51;
+            emanetlerData.Size = new Size(898, 736);
+            emanetlerData.TabIndex = 28;
             // 
             // oduncVer_btn
             // 
@@ -210,6 +177,7 @@
             oduncVer_btn.TabIndex = 29;
             oduncVer_btn.Text = "Ödünç Ver";
             oduncVer_btn.UseVisualStyleBackColor = false;
+            oduncVer_btn.Click += oduncVer_btn_Click;
             // 
             // iadeAl_btn
             // 
@@ -246,13 +214,13 @@
             label3.TabIndex = 22;
             label3.Text = "Alı Konulacak gün:";
             // 
-            // textBox3
+            // gunTB
             // 
-            textBox3.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox3.Location = new Point(925, 236);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(286, 43);
-            textBox3.TabIndex = 32;
+            gunTB.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            gunTB.Location = new Point(925, 236);
+            gunTB.Name = "gunTB";
+            gunTB.Size = new Size(286, 43);
+            gunTB.TabIndex = 32;
             // 
             // EmanetIslem
             // 
@@ -262,19 +230,19 @@
             BackColor = Color.FromArgb(238, 237, 223);
             ClientSize = new Size(1332, 776);
             ControlBox = false;
-            Controls.Add(textBox3);
+            Controls.Add(gunTB);
             Controls.Add(sureUzat);
             Controls.Add(iadeAl_btn);
             Controls.Add(oduncVer_btn);
-            Controls.Add(kisilerData);
+            Controls.Add(emanetlerData);
             Controls.Add(kucultme_btn);
             Controls.Add(kapatma_btn);
-            Controls.Add(dateTimePicker2);
+            Controls.Add(iadeDT);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(textBox2);
+            Controls.Add(kitapIsbnTB);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(aliciTcTB);
             Controls.Add(label1);
             ForeColor = Color.FromArgb(238, 237, 223);
             FormBorderStyle = FormBorderStyle.None;
@@ -286,29 +254,25 @@
             MouseDown += EmanetIslem_MouseDown;
             MouseMove += EmanetIslem_MouseMove;
             MouseUp += EmanetIslem_MouseUp;
-            ((System.ComponentModel.ISupportInitialize)kisilerData).EndInit();
+            ((System.ComponentModel.ISupportInitialize)emanetlerData).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox aliciTcTB;
+        private TextBox kitapIsbnTB;
         private Label label2;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker iadeDT;
         private Label label4;
         private Button kucultme_btn;
         private Button kapatma_btn;
-        private DataGridView kisilerData;
-        private DataGridViewTextBoxColumn aliciTc;
-        private DataGridViewTextBoxColumn kitapIsbn;
-        private DataGridViewTextBoxColumn alimTarihi;
-        private DataGridViewTextBoxColumn iadeTarihi;
+        private DataGridView emanetlerData;
         private Button oduncVer_btn;
         private Button iadeAl_btn;
         private Button sureUzat;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox gunTB;
     }
 }
