@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+﻿using System.Data;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace Kitapci
 {
@@ -21,9 +13,9 @@ namespace Kitapci
             this.StartPosition = FormStartPosition.Manual;
         }
         DataTable dtEmanet;
-       
         public void guncelle()
         {
+            dtEmanet.Rows.Clear(); // DataTable'ı temizle
             foreach (Emanet emanet in Emanet.emanetler)
             {
                 emanet.tabloyaEkle(dtEmanet);
@@ -33,12 +25,14 @@ namespace Kitapci
         }
         private void EmanetIslem_Load(object sender, EventArgs e)
         {
-            emanetlerData.DataSource = new DataTable();
+
+            // emanetler tablosu
             dtEmanet = new DataTable();
-            dtEmanet.Columns.Add("Alıcı TC");
+            dtEmanet.Columns.Add("Alici TC");
             dtEmanet.Columns.Add("Kitap ISBN");
             dtEmanet.Columns.Add("Alım Tarihi");
             dtEmanet.Columns.Add("İade Tarihi");
+            emanetlerData.DefaultCellStyle.ForeColor = Color.Black;
 
             if (File.Exists("emanetler.json"))
             {
@@ -47,7 +41,7 @@ namespace Kitapci
                 guncelle();
             }
 
-             
+
         }
 
         private void kucultme_btn_Click(object sender, EventArgs e)
@@ -95,11 +89,12 @@ namespace Kitapci
                 AlinmaTarihi = DateTime.Now,
                 iadeTarihi = DateTime.Now.AddDays(Convert.ToInt32(gunTB.Text))
             };
-            
+            Emanet.emanetler.Add(emanet);
+
             string yazilacak = JsonSerializer.Serialize<List<Emanet>>(Emanet.emanetler);
             File.WriteAllText("emanetler.json", yazilacak, Encoding.UTF8);
             guncelle();
         }
-        }
     }
+}
 
