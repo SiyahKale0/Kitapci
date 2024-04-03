@@ -31,6 +31,15 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+<<<<<<< HEAD
+            emanetData = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)emanetData).BeginInit();
+            SuspendLayout();
+            // 
+            // emanetData
+            // 
+            emanetData.BackgroundColor = Color.FromArgb(238, 237, 223);
+=======
             kisilerData = new DataGridView();
             aliciTc = new DataGridViewTextBoxColumn();
             kitapIsbn = new DataGridViewTextBoxColumn();
@@ -42,6 +51,7 @@
             // kisilerData
             // 
             kisilerData.BackgroundColor = Color.FromArgb(238, 237, 223);
+>>>>>>> 87730fb (Proje dosyası ekle.)
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(192, 192, 0);
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
@@ -50,9 +60,14 @@
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+<<<<<<< HEAD
+            emanetData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            emanetData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+=======
             kisilerData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             kisilerData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             kisilerData.Columns.AddRange(new DataGridViewColumn[] { aliciTc, kitapIsbn, alimTarihi, iadeTarihi });
+>>>>>>> 87730fb (Proje dosyası ekle.)
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(238, 237, 223);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -60,9 +75,15 @@
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+<<<<<<< HEAD
+            emanetData.DefaultCellStyle = dataGridViewCellStyle2;
+            emanetData.Location = new Point(1, 2);
+            emanetData.Name = "emanetData";
+=======
             kisilerData.DefaultCellStyle = dataGridViewCellStyle2;
             kisilerData.Location = new Point(1, 2);
             kisilerData.Name = "kisilerData";
+>>>>>>> 87730fb (Proje dosyası ekle.)
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.Transparent;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -70,6 +91,12 @@
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+<<<<<<< HEAD
+            emanetData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            emanetData.RowHeadersWidth = 51;
+            emanetData.Size = new Size(760, 677);
+            emanetData.TabIndex = 4;
+=======
             kisilerData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             kisilerData.RowHeadersWidth = 51;
             kisilerData.Size = new Size(760, 677);
@@ -102,26 +129,39 @@
             iadeTarihi.MinimumWidth = 6;
             iadeTarihi.Name = "iadeTarihi";
             iadeTarihi.Width = 125;
+>>>>>>> 87730fb (Proje dosyası ekle.)
             // 
             // EmanetlerIcerik
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(238, 237, 223);
+<<<<<<< HEAD
+            Controls.Add(emanetData);
+            Margin = new Padding(0);
+            Name = "EmanetlerIcerik";
+            Size = new Size(763, 682);
+            ((System.ComponentModel.ISupportInitialize)emanetData).EndInit();
+=======
             Controls.Add(kisilerData);
             Margin = new Padding(0);
             Name = "EmanetlerIcerik";
             Size = new Size(763, 682);
             ((System.ComponentModel.ISupportInitialize)kisilerData).EndInit();
+>>>>>>> 87730fb (Proje dosyası ekle.)
             ResumeLayout(false);
         }
 
         #endregion
 
+<<<<<<< HEAD
+        private DataGridView emanetData;
+=======
         private DataGridView kisilerData;
         private DataGridViewTextBoxColumn aliciTc;
         private DataGridViewTextBoxColumn kitapIsbn;
         private DataGridViewTextBoxColumn alimTarihi;
         private DataGridViewTextBoxColumn iadeTarihi;
+>>>>>>> 87730fb (Proje dosyası ekle.)
     }
 }

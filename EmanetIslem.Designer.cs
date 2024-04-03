@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+=======
+>>>>>>> 87730fb (Proje dosyası ekle.)
             label1 = new Label();
             aliciTcTB = new TextBox();
             kitapIsbnTB = new TextBox();
@@ -39,13 +40,13 @@
             label4 = new Label();
             kucultme_btn = new Button();
             kapatma_btn = new Button();
-            emanetlerData = new DataGridView();
             oduncVer_btn = new Button();
             iadeAl_btn = new Button();
             sureUzat = new Button();
             label3 = new Label();
             gunTB = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)emanetlerData).BeginInit();
+            emanetdata = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)emanetdata).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -131,41 +132,6 @@
             kapatma_btn.UseVisualStyleBackColor = false;
             kapatma_btn.Click += kapatma_btn_Click;
             // 
-            // emanetlerData
-            // 
-            emanetlerData.BackgroundColor = Color.FromArgb(238, 237, 223);
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(192, 192, 0);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.NullValue = null;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            emanetlerData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            emanetlerData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(238, 237, 223);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(238, 237, 223);
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            emanetlerData.DefaultCellStyle = dataGridViewCellStyle2;
-            emanetlerData.Location = new Point(12, 12);
-            emanetlerData.Name = "emanetlerData";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.Transparent;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            emanetlerData.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            emanetlerData.RowHeadersWidth = 51;
-            emanetlerData.Size = new Size(898, 736);
-            emanetlerData.TabIndex = 28;
-            // 
             // oduncVer_btn
             // 
             oduncVer_btn.BackColor = Color.LawnGreen;
@@ -190,6 +156,10 @@
             iadeAl_btn.TabIndex = 30;
             iadeAl_btn.Text = "İade Al";
             iadeAl_btn.UseVisualStyleBackColor = false;
+<<<<<<< HEAD
+            iadeAl_btn.Click += iadeAl_btn_Click;
+=======
+>>>>>>> 87730fb (Proje dosyası ekle.)
             // 
             // sureUzat
             // 
@@ -202,6 +172,10 @@
             sureUzat.TabIndex = 31;
             sureUzat.Text = "Süre Uzat";
             sureUzat.UseVisualStyleBackColor = false;
+<<<<<<< HEAD
+            sureUzat.Click += sureUzat_Click;
+=======
+>>>>>>> 87730fb (Proje dosyası ekle.)
             // 
             // label3
             // 
@@ -221,6 +195,36 @@
             gunTB.Name = "gunTB";
             gunTB.Size = new Size(286, 43);
             gunTB.TabIndex = 32;
+<<<<<<< HEAD
+            gunTB.TextChanged += gunTB_TextChanged;
+            // 
+            // emanetdata
+            // 
+            emanetdata.BackgroundColor = Color.FromArgb(238, 237, 223);
+            emanetdata.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(238, 237, 223);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(238, 237, 223);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            emanetdata.DefaultCellStyle = dataGridViewCellStyle1;
+=======
+            // 
+            // emanetdata
+            // 
+            emanetdata.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+>>>>>>> 87730fb (Proje dosyası ekle.)
+            emanetdata.Location = new Point(19, 23);
+            emanetdata.Name = "emanetdata";
+            emanetdata.RowHeadersWidth = 51;
+            emanetdata.Size = new Size(900, 741);
+            emanetdata.TabIndex = 33;
+<<<<<<< HEAD
+            emanetdata.CellClick += emanetdata_CellClick;
+=======
+>>>>>>> 87730fb (Proje dosyası ekle.)
             // 
             // EmanetIslem
             // 
@@ -230,11 +234,11 @@
             BackColor = Color.FromArgb(238, 237, 223);
             ClientSize = new Size(1332, 776);
             ControlBox = false;
+            Controls.Add(emanetdata);
             Controls.Add(gunTB);
             Controls.Add(sureUzat);
             Controls.Add(iadeAl_btn);
             Controls.Add(oduncVer_btn);
-            Controls.Add(emanetlerData);
             Controls.Add(kucultme_btn);
             Controls.Add(kapatma_btn);
             Controls.Add(iadeDT);
@@ -254,7 +258,7 @@
             MouseDown += EmanetIslem_MouseDown;
             MouseMove += EmanetIslem_MouseMove;
             MouseUp += EmanetIslem_MouseUp;
-            ((System.ComponentModel.ISupportInitialize)emanetlerData).EndInit();
+            ((System.ComponentModel.ISupportInitialize)emanetdata).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -268,11 +272,11 @@
         private Label label4;
         private Button kucultme_btn;
         private Button kapatma_btn;
-        private DataGridView emanetlerData;
         private Button oduncVer_btn;
         private Button iadeAl_btn;
         private Button sureUzat;
         private Label label3;
         private TextBox gunTB;
+        private DataGridView emanetdata;
     }
 }

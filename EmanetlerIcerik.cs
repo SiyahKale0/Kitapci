@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Kitapci
+﻿namespace Kitapci
 {
     public partial class EmanetlerIcerik : UserControl
     {
@@ -16,5 +6,10 @@ namespace Kitapci
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
+
+        public DataGridView emanetlerdata { get { return emanetData; } }
+=======
+>>>>>>> 87730fb (Proje dosyası ekle.)
     }
 }
