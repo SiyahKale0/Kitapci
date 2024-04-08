@@ -34,37 +34,30 @@ namespace Kitapci
             var kitaplarIcerik = new KitaplarIcerik();
             icerik.Controls.Add(kitaplarIcerik);
         }
-<<<<<<< HEAD
-        public void emanetisemgetir()
-=======
 
-        private void emanetler_btn_Click(object sender, EventArgs e)
->>>>>>> 87730fb (Proje dosyası ekle.)
+        public void emanetisemgetir()
         {
             icerik.Controls.Clear();
             var emanetlerIcerik = new EmanetlerIcerik();
             icerik.Controls.Add(emanetlerIcerik);
-<<<<<<< HEAD
+
             Emanet.tabloKur();
             Emanet.veriGetir(emanetlerIcerik.emanetlerdata);
         }
+
+
+
         private void emanetler_btn_Click(object sender, EventArgs e)
         {
             emanetisemgetir();
-=======
->>>>>>> 87730fb (Proje dosyası ekle.)
         }
 
         private void Yonetim_Load(object sender, EventArgs e)
         {
             islemModu = 0;
-<<<<<<< HEAD
+
             emanetisemgetir();
-=======
-            icerik.Controls.Clear();
-            var emanetlerIcerik = new EmanetlerIcerik();
-            icerik.Controls.Add(emanetlerIcerik);
->>>>>>> 87730fb (Proje dosyası ekle.)
+
         }
 
         private void islemler_btn_Click(object sender, EventArgs e)

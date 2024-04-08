@@ -6,10 +6,10 @@
         {
             InitializeComponent();
         }
-<<<<<<< HEAD
+
 
         public DataGridView emanetlerdata { get { return emanetData; } }
-=======
->>>>>>> 87730fb (Proje dosyası ekle.)
+
+
     }
 }

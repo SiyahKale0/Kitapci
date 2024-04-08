@@ -12,10 +12,10 @@ namespace Kitapci
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
         }
-<<<<<<< HEAD
 
 
-=======
+
+
         DataTable dtEmanet;
         public void guncelle()
         {
@@ -27,16 +27,16 @@ namespace Kitapci
             
             emanetdata.DataSource = dtEmanet;
         }
->>>>>>> 87730fb (Proje dosyası ekle.)
+
         private void EmanetIslem_Load(object sender, EventArgs e)
         {
 
             // emanetler tablosu
-<<<<<<< HEAD
+
             Emanet.tabloKur();
             Emanet.veriGetir(emanetdata);
             emanetdata.DefaultCellStyle.ForeColor = Color.Black;
-=======
+
             dtEmanet = new DataTable();
             dtEmanet.Columns.Add("Alici TC");
             dtEmanet.Columns.Add("Kitap ISBN");
@@ -51,7 +51,7 @@ namespace Kitapci
                 guncelle();
             }
 
->>>>>>> 87730fb (Proje dosyası ekle.)
+
 
         }
 
@@ -93,7 +93,7 @@ namespace Kitapci
 
         private void oduncVer_btn_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             bool alinmis = false;
 
             foreach (Emanet em in Emanet.emanetler)
@@ -156,40 +156,47 @@ namespace Kitapci
         private void sureUzat_Click(object sender, EventArgs e)
         {
             DateTime aktifAlinma = DateTime.Now;
+            bool islemyap = false;
 
             // Emanet bul ve süresini değişkende tut
             foreach (Emanet em in Emanet.emanetler)
             {
-                if (em.AliciTC == Convert.ToInt32(aliciTcTB.Text) && em.KitapIsbn == Convert.ToInt32(kitapIsbnTB.Text))
+                if (!(em.AliciTC == Convert.ToInt32(aliciTcTB.Text) && em.KitapIsbn == Convert.ToInt32(kitapIsbnTB.Text)))
+                {
+                    break;
+                }
+                else
                 {
                     aktifAlinma = em.AlinmaTarihi;
+                    islemyap = true;
                     break;
                 }
             }
-=======
->>>>>>> 87730fb (Proje dosyası ekle.)
-            Emanet emanet = new Emanet()
+
+            if (islemyap)
             {
-                AliciTC = Convert.ToInt32(aliciTcTB.Text),
-                KitapIsbn = Convert.ToInt32(kitapIsbnTB.Text),
-<<<<<<< HEAD
-                AlinmaTarihi = aktifAlinma,
-                iadeTarihi = iadeDT.Value.AddDays(Convert.ToUInt32(gunTB.Text))
-            };
+                Emanet emanet = new Emanet()
+                {
+                    AliciTC = Convert.ToInt32(aliciTcTB.Text),
+                    KitapIsbn = Convert.ToInt32(kitapIsbnTB.Text),
 
-            Emanet.emanetKaldir(aliciTcTB.Text, kitapIsbnTB.Text);
-            Emanet.emanetEkle(emanet);
-            Emanet.veriGetir(emanetdata);
-=======
-                AlinmaTarihi = DateTime.Now,
-                iadeTarihi = DateTime.Now.AddDays(Convert.ToInt32(gunTB.Text))
-            };
-            Emanet.emanetler.Add(emanet);
+                    AlinmaTarihi = aktifAlinma,
+                    iadeTarihi = iadeDT.Value.AddDays(Convert.ToUInt32(gunTB.Text))
+                };
 
-            string yazilacak = JsonSerializer.Serialize<List<Emanet>>(Emanet.emanetler);
-            File.WriteAllText("emanetler.json", yazilacak, Encoding.UTF8);
-            guncelle();
->>>>>>> 87730fb (Proje dosyası ekle.)
+                Emanet.emanetKaldir(aliciTcTB.Text, kitapIsbnTB.Text);
+                Emanet.emanetEkle(emanet);
+                Emanet.veriGetir(emanetdata);
+
+                guncelle();
+            }
+            else
+            {
+                MessageBox.Show("Süresi uzatılacak kitap bulunamadı");
+
+            }
+
+
         }
     }
 }

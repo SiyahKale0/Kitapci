@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
+
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-=======
->>>>>>> 87730fb (Proje dosyası ekle.)
+
+
             label1 = new Label();
             aliciTcTB = new TextBox();
             kitapIsbnTB = new TextBox();
@@ -156,10 +156,10 @@
             iadeAl_btn.TabIndex = 30;
             iadeAl_btn.Text = "İade Al";
             iadeAl_btn.UseVisualStyleBackColor = false;
-<<<<<<< HEAD
+
             iadeAl_btn.Click += iadeAl_btn_Click;
-=======
->>>>>>> 87730fb (Proje dosyası ekle.)
+
+
             // 
             // sureUzat
             // 
@@ -172,10 +172,10 @@
             sureUzat.TabIndex = 31;
             sureUzat.Text = "Süre Uzat";
             sureUzat.UseVisualStyleBackColor = false;
-<<<<<<< HEAD
+
             sureUzat.Click += sureUzat_Click;
-=======
->>>>>>> 87730fb (Proje dosyası ekle.)
+
+
             // 
             // label3
             // 
@@ -195,7 +195,7 @@
             gunTB.Name = "gunTB";
             gunTB.Size = new Size(286, 43);
             gunTB.TabIndex = 32;
-<<<<<<< HEAD
+
             gunTB.TextChanged += gunTB_TextChanged;
             // 
             // emanetdata
@@ -210,21 +210,21 @@
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             emanetdata.DefaultCellStyle = dataGridViewCellStyle1;
-=======
+
             // 
             // emanetdata
             // 
             emanetdata.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
->>>>>>> 87730fb (Proje dosyası ekle.)
+
             emanetdata.Location = new Point(19, 23);
             emanetdata.Name = "emanetdata";
             emanetdata.RowHeadersWidth = 51;
             emanetdata.Size = new Size(900, 741);
             emanetdata.TabIndex = 33;
-<<<<<<< HEAD
+
             emanetdata.CellClick += emanetdata_CellClick;
-=======
->>>>>>> 87730fb (Proje dosyası ekle.)
+
+
             // 
             // EmanetIslem
             // 

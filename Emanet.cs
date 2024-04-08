@@ -1,20 +1,20 @@
 ﻿using System.Data;
-<<<<<<< HEAD
+
 using System.Text;
 using System.Text.Json;
-=======
->>>>>>> 87730fb (Proje dosyası ekle.)
+
+
 
 namespace Kitapci
 {
     public class Emanet
     {
         public static List<Emanet> emanetler = new List<Emanet>();
-<<<<<<< HEAD
+
         public static DataTable dtEmanet = new DataTable();
 
-=======
->>>>>>> 87730fb (Proje dosyası ekle.)
+
+
 
         private int _AliciTC;
         private int _KitapIsbn;
@@ -26,7 +26,7 @@ namespace Kitapci
         public DateTime AlinmaTarihi { get { return _alimTaihi; } set { _alimTaihi = value; } }
         public DateTime iadeTarihi { get { return _iadeTarihi; } set { _iadeTarihi = value; } }
 
-<<<<<<< HEAD
+
         public static void tabloKur()
         {
             Emanet.dtEmanet.Rows.Clear(); // DataTable'ı temizle
@@ -71,12 +71,12 @@ namespace Kitapci
             string yazilacak = JsonSerializer.Serialize<List<Emanet>>(Emanet.emanetler);
             File.WriteAllText("emanetler.json", yazilacak, Encoding.UTF8);
         }
-=======
+
         public void tabloyaEkle(DataTable tablo)
         {
             tablo.Rows.Add(new object[] { _AliciTC, _KitapIsbn, _alimTaihi, _iadeTarihi });
         }
 
->>>>>>> 87730fb (Proje dosyası ekle.)
+
     }
 }
