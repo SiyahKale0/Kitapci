@@ -1,82 +1,105 @@
-﻿using System.Data;
-
-using System.Text;
-using System.Text.Json;
-
-
+﻿using System;
+using System.Data;
+using System.Data.SQLite;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Kitapci
 {
-    public class Emanet
+    public class Emanet 
     {
-        public static List<Emanet> emanetler = new List<Emanet>();
-
-        public static DataTable dtEmanet = new DataTable();
-
-
-
-
-        private int _AliciTC;
-        private int _KitapIsbn;
-        private DateTime _alimTaihi;
+        private int _aliciTC;
+        private int _kitapIsbn;
+        private DateTime _alinmaTarihi;
         private DateTime _iadeTarihi;
+        public static List<DataGridView> tablolar = new List<DataGridView>();
+        public int AliciTC { get { return _aliciTC; } set { _aliciTC = value; } }
+        public int KitapIsbn { get { return _kitapIsbn; } set { _kitapIsbn = value; } }
+        public DateTime AlinmaTarihi { get { return _alinmaTarihi; } set { _alinmaTarihi = value; } }
+        public DateTime IadeTarihi { get { return _iadeTarihi; } set { _iadeTarihi = value; } }
 
-        public int AliciTC { get { return _AliciTC; } set { _AliciTC = value; } }
-        public int KitapIsbn { get { return _KitapIsbn; } set { _KitapIsbn = value; } }
-        public DateTime AlinmaTarihi { get { return _alimTaihi; } set { _alimTaihi = value; } }
-        public DateTime iadeTarihi { get { return _iadeTarihi; } set { _iadeTarihi = value; } }
+        private static SQLiteConnection _sqliteConn;
+        private static SQLiteCommand _sqliteCmd;
 
-
-        public static void tabloKur()
+        public static void ConnectToDatabase()
         {
-            Emanet.dtEmanet.Rows.Clear(); // DataTable'ı temizle
-            if (Emanet.dtEmanet.Columns.Contains("Alici TC") == false)
-                Emanet.dtEmanet.Columns.Add("Alici TC");
-            if (Emanet.dtEmanet.Columns.Contains("Kitap ISBN") == false)
-                Emanet.dtEmanet.Columns.Add("Kitap ISBN");
-            if (Emanet.dtEmanet.Columns.Contains("Alım Tarihi") == false)
-                Emanet.dtEmanet.Columns.Add("Alım Tarihi");
-            if (Emanet.dtEmanet.Columns.Contains("İade Tarihi") == false)
-                Emanet.dtEmanet.Columns.Add("İade Tarihi");
-        }
+            string dbPath = "veritabani.db"; // Database file path
+            bool isNewDatabase = !File.Exists(dbPath); // Check if a new database is created
 
-        public static void veriGetir(DataGridView emanetdata)
-        {
-            if (File.Exists("emanetler.json"))
+            // Create connection
+            _sqliteConn = new SQLiteConnection("Data Source=" + dbPath + ";Version=3;");
+            _sqliteConn.Open();
+
+            // Create command object
+            _sqliteCmd = _sqliteConn.CreateCommand();
+
+            // Create table if a new database is created
+            if (isNewDatabase)
             {
-                var data = File.ReadAllText("emanetler.json");
-                Emanet.emanetler = JsonSerializer.Deserialize<List<Emanet>>(data);
+                _sqliteCmd.CommandText = @"CREATE TABLE Emanet (
+                                            AliciTC INTEGER,
+                                            KitapIsbn INTEGER,
+                                            AlinmaTarihi TEXT,
+                                            IadeTarihi TEXT)";
+                _sqliteCmd.ExecuteNonQuery();
             }
+        }
 
-            Emanet.tabloKur(); // DataTable'ı oluştur veya temizle
+        public static void CloseDatabase()
+        {
+            _sqliteConn.Close();
+        }
 
-            foreach (Emanet emanet in Emanet.emanetler)
+        public static void AddTable(DataGridView dataGridView)
+        {
+            tablolar.Add(dataGridView);
+        }
+        public static void GetData()
+        {
+           foreach(var dgv in tablolar)
             {
-                dtEmanet.Rows.Add(new object[] { emanet._AliciTC, emanet._KitapIsbn, emanet._alimTaihi, emanet._iadeTarihi });
+                DataTable dataTable = new DataTable();
+                using (SQLiteDataAdapter adapter = new SQLiteDataAdapter("SELECT * FROM Emanet", _sqliteConn))
+                {
+                    adapter.Fill(dataTable);
+                }
+                dgv.DataSource = dataTable;
             }
-
-            emanetdata.DataSource = Emanet.dtEmanet;
+            
         }
 
-        public static void emanetEkle(Emanet emanet)
+        public static void AddEmanet(Emanet emanet)
         {
-            Emanet.emanetler.Add(emanet);
-            string yazilacak = JsonSerializer.Serialize<List<Emanet>>(Emanet.emanetler);
-            File.WriteAllText("emanetler.json", yazilacak, Encoding.UTF8);
+            _sqliteCmd.CommandText = "INSERT INTO Emanet (AliciTC, KitapIsbn, AlinmaTarihi, IadeTarihi) VALUES (@AliciTC, @KitapIsbn, @AlinmaTarihi, @IadeTarihi)";
+            _sqliteCmd.Parameters.AddWithValue("@AliciTC", emanet.AliciTC);
+            _sqliteCmd.Parameters.AddWithValue("@KitapIsbn", emanet.KitapIsbn);
+            _sqliteCmd.Parameters.AddWithValue("@AlinmaTarihi", emanet.AlinmaTarihi.ToString("yyyy-MM-dd HH:mm:ss"));
+            _sqliteCmd.Parameters.AddWithValue("@IadeTarihi", emanet.IadeTarihi.ToString("yyyy-MM-dd HH:mm:ss"));
+            _sqliteCmd.ExecuteNonQuery();
         }
 
-        public static void emanetKaldir(string aliciTC, string kitapIsbn)
+        public static void RemoveEmanet(string aliciTC, string kitapIsbn)
         {
-            Emanet.emanetler.RemoveAll(x => x._AliciTC.ToString() == aliciTC && x._KitapIsbn.ToString() == kitapIsbn);
-            string yazilacak = JsonSerializer.Serialize<List<Emanet>>(Emanet.emanetler);
-            File.WriteAllText("emanetler.json", yazilacak, Encoding.UTF8);
+            _sqliteCmd.CommandText = "DELETE FROM Emanet WHERE AliciTC = @AliciTC AND KitapIsbn = @KitapIsbn";
+            _sqliteCmd.Parameters.AddWithValue("@AliciTC", aliciTC);
+            _sqliteCmd.Parameters.AddWithValue("@KitapIsbn", kitapIsbn);
+            _sqliteCmd.ExecuteNonQuery();
         }
 
-        public void tabloyaEkle(DataTable tablo)
+        public static DateTime? GetEmanetDate(int aliciTC, int kitapIsbn)
         {
-            tablo.Rows.Add(new object[] { _AliciTC, _KitapIsbn, _alimTaihi, _iadeTarihi });
+            _sqliteCmd.CommandText = "SELECT AlinmaTarihi FROM Emanet WHERE AliciTC = @AliciTC AND KitapIsbn = @KitapIsbn";
+            _sqliteCmd.Parameters.AddWithValue("@AliciTC", aliciTC);
+            _sqliteCmd.Parameters.AddWithValue("@KitapIsbn", kitapIsbn);
+            object result = _sqliteCmd.ExecuteScalar();
+            if (result != null)
+            {
+                return Convert.ToDateTime(result);
+            }
+            return null;
         }
-
 
     }
 }
+

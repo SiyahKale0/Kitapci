@@ -10,6 +10,6 @@
 
         public DataGridView emanetlerdata { get { return emanetData; } }
 
-
+       
     }
 }
