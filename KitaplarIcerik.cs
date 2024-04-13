@@ -6,5 +6,7 @@
         {
             InitializeComponent();
         }
+
+        public DataGridView kitaplardata { get { return kitaplarData; } }
     }
 }

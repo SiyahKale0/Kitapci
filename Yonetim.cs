@@ -30,9 +30,8 @@ namespace Kitapci
 
         private void kitaplar_btn_Click(object sender, EventArgs e)
         {
-            icerik.Controls.Clear();
-            var kitaplarIcerik = new KitaplarIcerik();
-            icerik.Controls.Add(kitaplarIcerik);
+            islemModu = 1;
+            kitapislemgetir();
         }
 
         public void emanetisemgetir()
@@ -45,10 +44,20 @@ namespace Kitapci
             Emanet.GetData();
         }
 
-
+        public void kitapislemgetir()
+        {
+            icerik.Controls.Clear();
+            var kitaplarIcerik = new KitaplarIcerik();
+            icerik.Controls.Add(kitaplarIcerik);
+            Kitap.ConnectToDatabase();
+            Kitap.AddTable(kitaplarIcerik.kitaplardata);
+            Kitap.GetData();
+        }
 
         private void emanetler_btn_Click(object sender, EventArgs e)
         {
+            islemModu = 0;
+
             emanetisemgetir();
         }
 
@@ -68,6 +77,10 @@ namespace Kitapci
                     var emanetIslem = new EmanetIslem();
                     emanetIslem.Show();
                     break;
+                case 1:
+                    var kitapIslem = new KitapIslem();
+                    kitapIslem.Show();
+                    break;  
             }
         }
         private int positionX;

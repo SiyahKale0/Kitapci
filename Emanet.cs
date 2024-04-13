@@ -24,17 +24,15 @@ namespace Kitapci
 
         public static void ConnectToDatabase()
         {
-            string dbPath = "veritabani.db"; // Database file path
-            bool isNewDatabase = !File.Exists(dbPath); // Check if a new database is created
+            string dbPath = "veritabani.db";
+            bool isNewDatabase = !File.Exists(dbPath);
 
-            // Create connection
+
             _sqliteConn = new SQLiteConnection("Data Source=" + dbPath + ";Version=3;");
             _sqliteConn.Open();
 
-            // Create command object
             _sqliteCmd = _sqliteConn.CreateCommand();
 
-            // Create table if a new database is created
             if (isNewDatabase)
             {
                 _sqliteCmd.CommandText = @"CREATE TABLE Emanet (

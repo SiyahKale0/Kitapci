@@ -78,6 +78,11 @@ namespace Kitapci
 
                 if (!alinmis)
                 {
+                    Kitap kitap = Kitap.GetKitap(Convert.ToInt32(kitapIsbnTB.Text));
+                    kitap.Adet = kitap.Adet - 1;
+                    Kitap.RemoveKitap(kitap.ISBN);
+                    Kitap.AddKitap(kitap);
+                    Kitap.GetData();
                     Emanet emanet = new Emanet()
                     {
                         AliciTC = Convert.ToInt32(aliciTcTB.Text),
