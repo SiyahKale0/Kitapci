@@ -72,32 +72,68 @@ namespace Kitapci
 
         private void oduncVer_btn_Click(object sender, EventArgs e)
         {
-            bool alinmis = Emanet.GetEmanetDate(Convert.ToInt32(aliciTcTB.Text), Convert.ToInt32(kitapIsbnTB.Text)) != null;
-
-            if (!alinmis)
+            if (!string.IsNullOrEmpty(aliciTcTB.Text) && !string.IsNullOrEmpty(kitapIsbnTB.Text) && !string.IsNullOrEmpty(gunTB.Text))
             {
-                Emanet emanet = new Emanet()
+                bool alinmis = Emanet.GetEmanetDate(Convert.ToInt32(aliciTcTB.Text), Convert.ToInt32(kitapIsbnTB.Text)) != null;
+
+                if (!alinmis)
                 {
-                    AliciTC = Convert.ToInt32(aliciTcTB.Text),
-                    KitapIsbn = Convert.ToInt32(kitapIsbnTB.Text),
-                    AlinmaTarihi = DateTime.Now,
-                    IadeTarihi = iadeDT.Value
-                };
-                Emanet.AddEmanet(emanet);
-                Emanet.GetData();
+                    Emanet emanet = new Emanet()
+                    {
+                        AliciTC = Convert.ToInt32(aliciTcTB.Text),
+                        KitapIsbn = Convert.ToInt32(kitapIsbnTB.Text),
+                        AlinmaTarihi = DateTime.Now,
+                        IadeTarihi = iadeDT.Value
+                    };
+                    Emanet.AddEmanet(emanet);
+                    Emanet.GetData();
+                }
+                else
+                {
+                    MessageBox.Show("Bu kişi bu kitabı almış");
+                }
             }
             else
             {
-                MessageBox.Show("Bu kişi bu kitabı almış");
+                MessageBox.Show("Lütfen giriş değerlerini doldurun!");
             }
+
         }
 
         private void emanetdata_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            aliciTcTB.Text = emanetdata.CurrentRow.Cells[0].Value.ToString();
-            kitapIsbnTB.Text = emanetdata.CurrentRow.Cells[1].Value.ToString();
-            gunTB.Text = (Convert.ToDateTime(emanetdata.CurrentRow.Cells[3].Value) - Convert.ToDateTime(emanetdata.CurrentRow.Cells[2].Value)).Days.ToString();
-            iadeDT.Value = Convert.ToDateTime(emanetdata.CurrentRow.Cells[3].Value);
+            if (emanetdata.CurrentRow.Cells[0].Value != null)
+            {
+                aliciTcTB.Text = emanetdata.CurrentRow.Cells[0].Value.ToString();
+            }
+            else
+            {
+                aliciTcTB.Text = ""; 
+                MessageBox.Show("Alici TC null değer içeriyor!");
+            }
+
+            if (emanetdata.CurrentRow.Cells[1].Value != null)
+            {
+                kitapIsbnTB.Text = emanetdata.CurrentRow.Cells[1].Value.ToString();
+            }
+            else
+            {
+                kitapIsbnTB.Text = ""; 
+            }
+
+            if (emanetdata.CurrentRow.Cells[2].Value != DBNull.Value && emanetdata.CurrentRow.Cells[3].Value != DBNull.Value)
+            {
+                DateTime iadeTarihi = Convert.ToDateTime(emanetdata.CurrentRow.Cells[3].Value);
+                DateTime alimTarihi = Convert.ToDateTime(emanetdata.CurrentRow.Cells[2].Value);
+                gunTB.Text = (iadeTarihi - alimTarihi).Days.ToString();
+                iadeDT.Value = iadeTarihi;
+            }
+            else
+            {
+                gunTB.Text = ""; 
+                MessageBox.Show("Alim tarihi veya iade tarihi null değer içeriyor!"); 
+            }
+
         }
 
         private void gunTB_TextChanged(object sender, EventArgs e)
@@ -114,34 +150,50 @@ namespace Kitapci
 
         private void iadeAl_btn_Click(object sender, EventArgs e)
         {
-            Emanet.RemoveEmanet(aliciTcTB.Text, kitapIsbnTB.Text);
+            if (!string.IsNullOrEmpty(aliciTcTB.Text) && !string.IsNullOrEmpty(kitapIsbnTB.Text))
+            {
+                Emanet.RemoveEmanet(aliciTcTB.Text, kitapIsbnTB.Text);
+            }
+            else
+            {
+                MessageBox.Show("Alıcı TC ve kitap ISBN numarası belirtilmediğinden, emanetin kaldırılması mümkün değil.");
+            }
             Emanet.GetData();
+
         }
 
         private void sureUzat_Click(object sender, EventArgs e)
         {
-            DateTime? aktifAlinma = Emanet.GetEmanetDate(Convert.ToInt32(aliciTcTB.Text), Convert.ToInt32(kitapIsbnTB.Text));
-
-            if (aktifAlinma != null)
+            if (!string.IsNullOrEmpty(aliciTcTB.Text) && !string.IsNullOrEmpty(kitapIsbnTB.Text) && !string.IsNullOrEmpty(gunTB.Text) && iadeDT.Value != null)
             {
-                Emanet emanet = new Emanet()
+                DateTime? aktifAlinma = Emanet.GetEmanetDate(Convert.ToInt32(aliciTcTB.Text), Convert.ToInt32(kitapIsbnTB.Text));
+
+                if (aktifAlinma.HasValue)
                 {
-                    AliciTC = Convert.ToInt32(aliciTcTB.Text),
-                    KitapIsbn = Convert.ToInt32(kitapIsbnTB.Text),
-                    AlinmaTarihi = aktifAlinma.Value,
-                    IadeTarihi = iadeDT.Value.AddDays(Convert.ToInt32(gunTB.Text))
-                };
+                    Emanet emanet = new Emanet()
+                    {
+                        AliciTC = Convert.ToInt32(aliciTcTB.Text),
+                        KitapIsbn = Convert.ToInt32(kitapIsbnTB.Text),
+                        AlinmaTarihi = aktifAlinma.Value,
+                        IadeTarihi = iadeDT.Value.AddDays(Convert.ToInt32(gunTB.Text))
+                    };
 
-                Emanet.RemoveEmanet(aliciTcTB.Text, kitapIsbnTB.Text);
-                Emanet.AddEmanet(emanet);
-                Emanet.GetData();
+                    Emanet.RemoveEmanet(aliciTcTB.Text, kitapIsbnTB.Text);
+                    Emanet.AddEmanet(emanet);
+                    Emanet.GetData();
 
-                guncelle();
+                    guncelle();
+                }
+                else
+                {
+                    MessageBox.Show("Süresi uzatılacak kitap bulunamadı");
+                }
             }
             else
             {
-                MessageBox.Show("Süresi uzatılacak kitap bulunamadı");
+                MessageBox.Show("Lütfen geçerli giriş değerlerini doldurun!");
             }
+
         }
     }
 }

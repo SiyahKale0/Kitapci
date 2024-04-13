@@ -40,9 +40,9 @@ namespace Kitapci
             icerik.Controls.Clear();
             var emanetlerIcerik = new EmanetlerIcerik();
             icerik.Controls.Add(emanetlerIcerik);
-
-            Emanet.tabloKur();
-            Emanet.veriGetir(emanetlerIcerik.emanetlerdata);
+            Emanet.ConnectToDatabase();
+            Emanet.AddTable(emanetlerIcerik.emanetlerdata);
+            Emanet.GetData();
         }
 
 

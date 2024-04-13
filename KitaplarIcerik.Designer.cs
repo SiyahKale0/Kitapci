@@ -34,6 +34,7 @@
             kisilerData = new DataGridView();
             baslik = new DataGridViewTextBoxColumn();
             yazar = new DataGridViewTextBoxColumn();
+            adet = new DataGridViewTextBoxColumn();
             yayinEvi = new DataGridViewTextBoxColumn();
             sayfaSayisi = new DataGridViewTextBoxColumn();
             basimYili = new DataGridViewTextBoxColumn();
@@ -54,7 +55,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             kisilerData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             kisilerData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            kisilerData.Columns.AddRange(new DataGridViewColumn[] { baslik, yazar, yayinEvi, sayfaSayisi, basimYili, isbn });
+            kisilerData.Columns.AddRange(new DataGridViewColumn[] { baslik, yazar, adet, yayinEvi, sayfaSayisi, basimYili, isbn });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(238, 237, 223);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -90,6 +91,13 @@
             yazar.MinimumWidth = 6;
             yazar.Name = "yazar";
             yazar.Width = 125;
+            // 
+            // adet
+            // 
+            adet.HeaderText = "Adet";
+            adet.MinimumWidth = 6;
+            adet.Name = "adet";
+            adet.Width = 125;
             // 
             // yayinEvi
             // 
@@ -137,6 +145,7 @@
         private DataGridView kisilerData;
         private DataGridViewTextBoxColumn baslik;
         private DataGridViewTextBoxColumn yazar;
+        private DataGridViewTextBoxColumn adet;
         private DataGridViewTextBoxColumn yayinEvi;
         private DataGridViewTextBoxColumn sayfaSayisi;
         private DataGridViewTextBoxColumn basimYili;
